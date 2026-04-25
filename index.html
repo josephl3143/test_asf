@@ -9,9 +9,9 @@
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     :root {
       --primary:#1A56DB; --primary-dk:#1344B0; --success:#0E9F6E;
-      --warning:#F59E0B; --danger:#E02424; --bg:#F3F6FB; --card:#FFFFFF;
+      --warning:#F59E0B; --danger:#E02424; --bg:#F3F6FB; --card:#FFF;
       --border:#D1D5DB; --text-main:#111827; --text-sub:#6B7280;
-      --radius:14px; --shadow:0 3px 16px rgba(0,0,0,0.07);
+      --radius:14px; --shadow:0 3px 16px rgba(0,0,0,.07);
     }
     body {
       font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
@@ -19,7 +19,6 @@
       min-height:100vh; padding-bottom:32px;
     }
 
-    /* ── Header ─────────────────────────── */
     header {
       background:linear-gradient(135deg,#1A56DB,#3B82F6);
       color:#fff; padding:18px 20px 22px; text-align:center;
@@ -31,20 +30,16 @@
       background:rgba(255,255,255,.18); border-radius:20px;
       padding:3px 12px; font-size:.78rem; margin-top:8px;
     }
-    .dot { width:8px; height:8px; border-radius:50%; background:#6EE7B7; animation:pulse 1.5s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.35)} }
+    .dot { width:8px;height:8px;border-radius:50%;background:#6EE7B7;animation:pulse 1.5s infinite; }
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.35)}}
 
-    /* ── Main ─────────────────────────────── */
     main { max-width:500px; margin:0 auto; padding:14px; display:flex; flex-direction:column; gap:12px; }
 
-    /* ── Card ─────────────────────────────── */
     .card { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; }
     .card-title { font-size:.98rem; font-weight:700; margin-bottom:13px; display:flex; align-items:center; gap:8px; }
-    .c-icon { width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:.95rem; }
-    .ci-blue{background:#EFF6FF} .ci-green{background:#ECFDF5}
-    .ci-purple{background:#F5F3FF} .ci-yellow{background:#FFFBEB}
+    .c-icon { width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem; }
+    .ci-blue{background:#EFF6FF}.ci-green{background:#ECFDF5}.ci-purple{background:#F5F3FF}.ci-yellow{background:#FFFBEB}
 
-    /* ── 사용자명 ─────────────────────────── */
     .user-row { display:flex; gap:8px; }
     .user-input {
       flex:1; font-size:1.05rem; padding:12px 14px;
@@ -54,7 +49,6 @@
     .user-input:focus    { border-color:var(--primary); background:#fff; }
     .user-input:disabled { background:#F3F4F6; color:var(--text-main); cursor:default; }
 
-    /* ── 버튼 ─────────────────────────────── */
     .btn { cursor:pointer; border:none; border-radius:11px; font-size:.98rem; font-weight:700; transition:all .15s; display:flex; align-items:center; justify-content:center; gap:6px; }
     .btn:active { transform:scale(.96); }
     .btn-outline { padding:12px 16px; background:#EFF6FF; color:var(--primary); border:2px solid #BFDBFE; }
@@ -65,10 +59,8 @@
     .btn-success { width:100%; padding:16px; font-size:1.05rem; background:linear-gradient(135deg,#0E9F6E,#059669); color:#fff; border-radius:12px; box-shadow:0 3px 12px rgba(14,159,110,.28); }
     .btn-success:hover    { box-shadow:0 5px 16px rgba(14,159,110,.38); }
     .btn-success:disabled { background:#D1FAE5; color:#6EE7B7; box-shadow:none; cursor:not-allowed; }
-    .btn-danger { width:100%; padding:13px; font-size:.95rem; background:#FEF2F2; color:var(--danger); border:2px solid #FECACA; border-radius:11px; }
-    .btn-danger:hover { background:#FEE2E2; }
 
-    /* ── 권한 ─────────────────────────────── */
+    /* 권한 */
     .perm-row { display:flex; gap:8px; margin-bottom:12px; }
     .perm-chip { flex:1; padding:10px 12px; border-radius:10px; display:flex; align-items:center; gap:8px; border:2px solid transparent; }
     .perm-chip.granted{background:#ECFDF5;border-color:#A7F3D0}
@@ -86,15 +78,15 @@
     .perm-alert.show{display:block}
     .cam-alert{background:#FEF2F2;border:1.5px solid #FECACA;color:#7F1D1D}
     .gps-alert{background:#FFF7ED;border:1.5px solid #FED7AA;color:#7C2D12}
-    .btn-perm{width:100%;padding:13px;font-size:.95rem;background:var(--primary);color:#fff;border-radius:11px;margin-bottom:0}
+    .btn-perm{width:100%;padding:13px;font-size:.95rem;background:var(--primary);color:#fff;border-radius:11px}
     .btn-perm:hover{background:var(--primary-dk)}
     .btn-perm:disabled{background:#93C5FD;cursor:not-allowed}
 
-    /* ── QR 스캐너 (실시간) ──────────────── */
+    /* QR 뷰파인더 */
     .qr-wrapper {
       position:relative; width:100%; aspect-ratio:1;
       max-width:380px; margin:0 auto;
-      border-radius:16px; overflow:hidden; background:#000;
+      border-radius:16px; overflow:hidden; background:#1a1a1a;
     }
     #qrVideo { width:100%; height:100%; object-fit:cover; display:block; }
     .qr-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; }
@@ -106,22 +98,26 @@
     .qr-frame::after       {top:0;right:0;border-width:3px 3px 0 0;border-radius:0 4px 0 0}
     .qr-frame>span::before {bottom:0;left:0;border-width:0 0 3px 3px;border-radius:0 0 0 4px}
     .qr-frame>span::after  {bottom:0;right:0;border-width:0 3px 3px 0;border-radius:0 0 4px 0}
+
+    /* 스캔 라인 — QR 인식 중일 때만 표시 */
     .scan-line {
       position:absolute; left:19%; width:62%; height:2px;
       background:linear-gradient(90deg,transparent,#60A5FA,transparent);
-      animation:scanMove 2s linear infinite;
+      animation:scanMove 2s linear infinite; display:none;
     }
     @keyframes scanMove{0%{top:19%}100%{top:calc(81% - 2px)}}
 
-    /* 스캔 상태 뱃지 (뷰파인더 위) */
+    /* 뷰파인더 상단 뱃지 */
     .scan-badge {
       position:absolute; top:12px; left:50%; transform:translateX(-50%);
       background:rgba(0,0,0,.55); backdrop-filter:blur(4px);
-      color:#fff; font-size:.78rem; font-weight:700;
-      padding:5px 14px; border-radius:20px; white-space:nowrap;
+      color:#fff; font-size:.8rem; font-weight:700;
+      padding:5px 16px; border-radius:20px; white-space:nowrap; display:none;
     }
-    .scan-badge.ok  { background:rgba(14,159,110,.8); }
-    .scan-badge.err { background:rgba(224,36,36,.7); }
+    .scan-badge.scanning { background:rgba(26,86,219,.75); }
+    .scan-badge.ok       { background:rgba(14,159,110,.85); }
+    .scan-badge.err      { background:rgba(224,36,36,.75); }
+    .scan-badge.saving   { background:rgba(245,158,11,.85); }
 
     /* 카메라 시작 전 플레이스홀더 */
     .cam-placeholder {
@@ -132,19 +128,26 @@
     .cam-placeholder .cam-icon { font-size:3rem; }
     .cam-placeholder p { font-size:.88rem; line-height:1.6; }
 
+    /* ★ 저장 중 오버레이 — QR 인식 후 카메라 위에 덮어씌움 */
+    .saving-overlay {
+      position:absolute; inset:0; display:none;
+      background:rgba(0,0,0,.7); backdrop-filter:blur(2px);
+      flex-direction:column; align-items:center; justify-content:center;
+      gap:14px; color:#fff; border-radius:16px;
+    }
+    .saving-overlay.show { display:flex; }
+    .saving-overlay .so-icon { font-size:2.8rem; }
+    .saving-overlay .so-text { font-size:1rem; font-weight:700; text-align:center; }
+    .saving-overlay .so-sub  { font-size:.82rem; opacity:.8; text-align:center; }
+    .save-spinner {
+      width:44px; height:44px;
+      border:4px solid rgba(255,255,255,.3); border-top-color:#fff;
+      border-radius:50%; animation:spin .7s linear infinite;
+    }
+
     canvas#liveCanvas { display:none; }
 
-    /* 스캔 결과 카드 */
-    #qrResult {
-      display:none; margin-top:12px; padding:14px;
-      background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:12px;
-    }
-    .qr-res-row { display:flex; gap:10px; font-size:.9rem; margin-bottom:5px; align-items:flex-start; }
-    .qr-res-row:last-child { margin-bottom:0; }
-    .qr-res-label { font-weight:700; color:#065F46; min-width:58px; flex-shrink:0; }
-    .qr-res-val   { color:var(--text-main); word-break:break-all; }
-
-    /* 상태 표시 */
+    /* 상태 박스 */
     #statusBox {
       text-align:center; font-size:.93rem; font-weight:700;
       padding:11px 14px; border-radius:11px; margin-top:10px;
@@ -155,9 +158,19 @@
     #statusBox.error   {background:#FEF2F2;color:var(--danger)}
     #statusBox.saving  {background:#FFFBEB;color:var(--warning)}
 
+    /* QR 인식 결과 */
+    #qrResult {
+      display:none; margin-top:12px; padding:14px;
+      background:#F0FDF4; border:1.5px solid #BBF7D0; border-radius:12px;
+    }
+    .qr-res-row { display:flex; gap:10px; font-size:.88rem; margin-bottom:5px; align-items:flex-start; }
+    .qr-res-row:last-child{margin-bottom:0}
+    .qr-res-label{font-weight:700;color:#065F46;min-width:58px;flex-shrink:0}
+    .qr-res-val  {color:var(--text-main);word-break:break-all}
+
     /* 최근 기록 */
-    .record-list { display:flex; flex-direction:column; gap:9px; }
-    .record-item { display:flex; align-items:center; gap:10px; padding:11px 13px; background:#F9FAFB; border-radius:11px; border-left:4px solid var(--primary); }
+    .record-list{display:flex;flex-direction:column;gap:9px}
+    .record-item{display:flex;align-items:center;gap:10px;padding:11px 13px;background:#F9FAFB;border-radius:11px;border-left:4px solid var(--primary)}
     .record-item.gps{border-left-color:var(--success)}
     .r-badge{min-width:36px;height:36px;border-radius:9px;background:#EFF6FF;color:var(--primary);font-size:1rem;display:flex;align-items:center;justify-content:center}
     .r-badge.gps{background:#ECFDF5;color:var(--success)}
@@ -168,7 +181,6 @@
     .r-type.gps{background:#D1FAE5;color:#065F46}
     .empty-msg{text-align:center;padding:20px;color:var(--text-sub);font-size:.88rem}
 
-    /* Toast */
     #toast {
       position:fixed; bottom:24px; left:50%;
       transform:translateX(-50%) translateY(20px);
@@ -182,16 +194,13 @@
     .spinner{display:inline-block;width:17px;height:17px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
     @keyframes spin{to{transform:rotate(360deg)}}
 
-    @media(max-width:400px){
-      header h1{font-size:1.25rem}
-      .card{padding:14px}
-    }
+    @media(max-width:400px){header h1{font-size:1.25rem}.card{padding:14px}}
   </style>
 </head>
 <body>
 
 <header>
-  <h1>ASF차단시설 점검관리</h1>
+  <h1>🪖 복무관리 시스템</h1>
   <p>QR 스캔 및 위치 기록</p>
   <div class="header-badge">
     <span class="dot"></span>
@@ -225,11 +234,11 @@
     </div>
     <button class="btn btn-perm" id="permBtn" onclick="requestAllPermissions()">🔓 권한 허용하기</button>
     <div class="perm-alert cam-alert" id="camAlert">
-      📷 카메라 차단됨 — 주소창 🔒 아이콘 → 카메라 → <b>허용</b> 후 새로고침<br>
-      <small>iPhone: 설정 앱 → Safari → 카메라 → 허용</small>
+      📷 카메라 차단됨 — 주소창 🔒 → 카메라 → <b>허용</b> 후 새로고침<br>
+      <small>iPhone: 설정 → Safari → 카메라 → 허용</small>
     </div>
     <div class="perm-alert gps-alert" id="gpsAlert">
-      📍 위치 차단됨 — 주소창 🔒 아이콘 → 위치 → <b>허용</b> 후 새로고침<br>
+      📍 위치 차단됨 — 주소창 🔒 → 위치 → <b>허용</b> 후 새로고침<br>
       <small>iPhone: 설정 → 개인정보보호 → 위치서비스 → Safari → 허용</small>
     </div>
   </div>
@@ -248,17 +257,25 @@
         <p>아래 버튼을 눌러<br>카메라를 시작하세요</p>
       </div>
 
+      <!-- ★ 저장 중 오버레이 (QR 인식 즉시 카메라 위 덮음) -->
+      <div class="saving-overlay" id="savingOverlay">
+        <div class="save-spinner"></div>
+        <div class="so-text" id="overlayText">저장 중...</div>
+        <div class="so-sub" id="overlaySub">잠시만 기다려주세요</div>
+      </div>
+
       <div class="qr-overlay"><div class="qr-frame"><span></span></div></div>
-      <div class="scan-line" id="scanLine" style="display:none;"></div>
-      <div class="scan-badge" id="scanBadge" style="display:none;"></div>
+      <div class="scan-line" id="scanLine"></div>
+      <div class="scan-badge" id="scanBadge"></div>
     </div>
 
-    <!-- 시작 / 정지 버튼 -->
-    <button class="btn btn-primary" id="cameraBtn" style="margin-top:12px;" onclick="toggleCamera()">
+    <!-- 카메라 시작 / 다시 스캔 버튼 -->
+    <button class="btn btn-primary" id="cameraBtn" style="margin-top:12px;" onclick="startCamera()">
       📷 카메라 시작
     </button>
-    <button class="btn btn-danger" id="stopBtn" style="margin-top:8px;display:none;" onclick="stopCamera()">
-      ⏹ 스캔 중지
+    <!-- ★ 저장 완료 후 "다시 스캔" 버튼으로 교체 -->
+    <button class="btn btn-primary" id="rescanBtn" style="margin-top:12px;display:none;background:var(--success);" onclick="rescanCamera()">
+      🔄 다시 스캔하기
     </button>
 
     <div id="statusBox">대기 중...</div>
@@ -266,8 +283,9 @@
     <!-- QR 인식 결과 -->
     <div id="qrResult">
       <div class="qr-res-row"><span class="qr-res-label">관리번호</span><span class="qr-res-val" id="resCnum">-</span></div>
-      <div class="qr-res-row"><span class="qr-res-label">위치명</span><span class="qr-res-val" id="resLocation">-</span></div>
       <div class="qr-res-row"><span class="qr-res-label">주소</span><span class="qr-res-val" id="resAddress">-</span></div>
+      <div class="qr-res-row"><span class="qr-res-label">위도</span><span class="qr-res-val" id="resLat">-</span></div>
+      <div class="qr-res-row"><span class="qr-res-label">경도</span><span class="qr-res-val" id="resLng">-</span></div>
     </div>
   </div>
 
@@ -300,36 +318,46 @@
 
 <script>
 // ============================================================
-//  ★★★ Apps Script 배포 URL을 여기에 입력하세요 ★★★
-//  배포 후 아래 URL을 실제 주소로 교체하세요
+//  ★★★ Apps Script 배포 URL 설정 ★★★
 // ============================================================
-const API_URL = 'https://script.google.com/macros/s/AKfycbxyQXvigiReH72DRfPqA_z2NqPvKHPFcE3qyan3EULytGZDLhctl1fG2IrfznDbJ_4/exec';
-// 예시: 'https://script.google.com/macros/s/AKfycbxxxxxx/exec'
+const API_URL = 'https://script.google.com/macros/s/AKfycby9AZAjBSifFzuZSNPtize5KcPN5dCqjn9dzbq6z0OWxPCqW6US24yQporASCY-mos/exec';
+// 예: 'https://script.google.com/macros/s/AKfycbXXXX/exec'
 
 // ============================================================
-//  API 호출 공통 함수
+//  API 호출
 // ============================================================
 async function callAPI(params) {
   const qs  = Object.entries(params).map(([k,v]) => `${k}=${encodeURIComponent(v)}`).join('&');
-  const url = `${API_URL}?api=1&${qs}`;
-  const res = await fetch(url);
+  const res = await fetch(`${API_URL}?api=1&${qs}`);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
 
 // ============================================================
-//  QR URL 파싱 → num 추출
+//  QR URL에서 num 추출
 //  예: https://www.keci.or.kr/asf/qr/index.html?num=1 → "1"
 // ============================================================
-function extractNumFromQR(rawData) {
+function extractNum(rawData) {
+  // ★ keci.or.kr QR 형식 우선 처리
   try {
     const url = new URL(rawData);
     const num = url.searchParams.get('num');
     if (num) return num;
   } catch {}
-  // URL 아닌 경우 숫자만 추출 시도
-  const match = rawData.match(/\d+/);
-  return match ? match[0] : null;
+  return null;
+}
+
+// ============================================================
+//  ★ QR인지 판별 — num 파라미터가 있는 URL만 허용
+//  일반 텍스트, num 없는 URL은 QR로 인식하지 않음
+// ============================================================
+function isValidQR(rawData) {
+  try {
+    const url = new URL(rawData);
+    return url.searchParams.has('num');
+  } catch {
+    return false;
+  }
 }
 
 // ============================================================
@@ -337,10 +365,7 @@ function extractNumFromQR(rawData) {
 // ============================================================
 let liveScanning = false;
 let liveStream   = null;
-let lastQRData   = '';
-let lastQRTime   = 0;
-let isSaving     = false;       // 저장 중 중복 방지
-const QR_COOLDOWN = 4000;       // 동일 QR 재인식 대기 (ms)
+let isSaving     = false;  // 저장 중 중복 인식 차단
 
 // ============================================================
 //  초기화
@@ -351,10 +376,8 @@ window.addEventListener('DOMContentLoaded', () => {
   loadRecentRecords();
   document.getElementById('userNameInput')
     .addEventListener('keydown', e => { if(e.key==='Enter') toggleUserEdit(); });
-
   if (API_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
-    setStatus('error', '⚠️ API_URL을 설정해주세요 (index.html 상단)');
-    showToast('⚠️ API_URL 미설정 — JS 상단 확인', 6000);
+    setStatus('error','⚠️ index.html 상단 API_URL을 설정해주세요');
   }
 });
 
@@ -362,136 +385,113 @@ window.addEventListener('DOMContentLoaded', () => {
 //  사용자명
 // ============================================================
 function loadUser() {
-  const saved = localStorage.getItem('dutyCare_userName') || '';
+  const saved = localStorage.getItem('dutyCare_userName')||'';
   const input = document.getElementById('userNameInput');
   if (saved) { input.value=saved; updateHeaderUser(saved); }
   else { input.disabled=false; input.focus(); document.getElementById('userEditBtn').textContent='저장'; }
 }
 function toggleUserEdit() {
-  const input = document.getElementById('userNameInput');
-  const btn   = document.getElementById('userEditBtn');
+  const input=document.getElementById('userNameInput'), btn=document.getElementById('userEditBtn');
   if (input.disabled) { input.disabled=false; input.focus(); btn.textContent='저장'; }
   else {
-    const name = input.value.trim();
+    const name=input.value.trim();
     if (!name) { showToast('⚠️ 이름을 입력해주세요'); input.focus(); return; }
-    localStorage.setItem('dutyCare_userName', name);
+    localStorage.setItem('dutyCare_userName',name);
     input.disabled=true; btn.textContent='수정';
     updateHeaderUser(name); showToast('✅ 이름 저장됨');
   }
 }
-function updateHeaderUser(n) { document.getElementById('headerUser').textContent = n+' 님'; }
-function getUserName()        { return localStorage.getItem('dutyCare_userName')||''; }
+function updateHeaderUser(n){ document.getElementById('headerUser').textContent=n+' 님'; }
+function getUserName()       { return localStorage.getItem('dutyCare_userName')||''; }
 
 // ============================================================
-//  권한 확인
+//  권한
 // ============================================================
 async function checkPermissions() {
-  try {
-    const p = await navigator.permissions.query({name:'camera'});
-    setPermUI('Camera', p.state);
-    p.addEventListener('change', ()=>setPermUI('Camera', p.state));
-  } catch { setPermUI('Camera','unknown'); }
-  try {
-    const p = await navigator.permissions.query({name:'geolocation'});
-    setPermUI('Gps', p.state);
-    p.addEventListener('change', ()=>setPermUI('Gps', p.state));
-  } catch { setPermUI('Gps','unknown'); }
+  try { const p=await navigator.permissions.query({name:'camera'}); setPermUI('Camera',p.state); p.addEventListener('change',()=>setPermUI('Camera',p.state)); } catch { setPermUI('Camera','unknown'); }
+  try { const p=await navigator.permissions.query({name:'geolocation'}); setPermUI('Gps',p.state); p.addEventListener('change',()=>setPermUI('Gps',p.state)); } catch { setPermUI('Gps','unknown'); }
 }
-function setPermUI(type, state) {
-  const box = document.getElementById('perm'+type);
-  const val = document.getElementById('perm'+(type==='Camera'?'Cam':'Gps')+'Val');
-  box.className = 'perm-chip '+({granted:'granted',denied:'denied',prompt:'prompt'}[state]||'pending');
-  val.textContent = {granted:'✅ 허용',denied:'❌ 차단',prompt:'⚠️ 미설정',unknown:'❓'}[state]||'확인 중';
-  if (type==='Camera') document.getElementById('camAlert').classList.toggle('show', state==='denied');
-  else                 document.getElementById('gpsAlert').classList.toggle('show', state==='denied');
-  const ok = document.getElementById('permCamera').classList.contains('granted') &&
-             document.getElementById('permGps').classList.contains('granted');
-  document.getElementById('permBtn').style.display = ok?'none':'flex';
+function setPermUI(type,state) {
+  const box=document.getElementById('perm'+type);
+  const val=document.getElementById('perm'+(type==='Camera'?'Cam':'Gps')+'Val');
+  box.className='perm-chip '+({granted:'granted',denied:'denied',prompt:'prompt'}[state]||'pending');
+  val.textContent={granted:'✅ 허용',denied:'❌ 차단',prompt:'⚠️ 미설정',unknown:'❓'}[state]||'확인 중';
+  if(type==='Camera') document.getElementById('camAlert').classList.toggle('show',state==='denied');
+  else document.getElementById('gpsAlert').classList.toggle('show',state==='denied');
+  const ok=document.getElementById('permCamera').classList.contains('granted')&&document.getElementById('permGps').classList.contains('granted');
+  document.getElementById('permBtn').style.display=ok?'none':'flex';
 }
 async function requestAllPermissions() {
   const btn=document.getElementById('permBtn');
   btn.innerHTML='<span class="spinner"></span> 요청 중...'; btn.disabled=true;
-  try {
-    const s = await navigator.mediaDevices.getUserMedia({video:true});
-    s.getTracks().forEach(t=>t.stop());
-    setPermUI('Camera','granted'); showToast('📷 카메라 허용됨');
-  } catch(e) { setPermUI('Camera', e.name==='NotAllowedError'?'denied':'prompt'); }
-  try {
-    await new Promise((res,rej)=>navigator.geolocation.getCurrentPosition(res,rej,{timeout:8000}));
-    setPermUI('Gps','granted'); showToast('📍 위치 허용됨');
-  } catch(e) { setPermUI('Gps', e.code===1?'denied':'prompt'); }
+  try { const s=await navigator.mediaDevices.getUserMedia({video:true}); s.getTracks().forEach(t=>t.stop()); setPermUI('Camera','granted'); showToast('📷 카메라 허용됨'); }
+  catch(e) { setPermUI('Camera',e.name==='NotAllowedError'?'denied':'prompt'); }
+  try { await new Promise((res,rej)=>navigator.geolocation.getCurrentPosition(res,rej,{timeout:8000})); setPermUI('Gps','granted'); showToast('📍 위치 허용됨'); }
+  catch(e) { setPermUI('Gps',e.code===1?'denied':'prompt'); }
   btn.innerHTML='🔓 권한 허용하기'; btn.disabled=false;
 }
 
 // ============================================================
-//  카메라 토글
+//  카메라 시작
 // ============================================================
-function toggleCamera() {
-  if (liveScanning) stopCamera();
-  else              startCamera();
-}
-
 async function startCamera() {
   if (!checkUser()) return;
 
-  const btn = document.getElementById('cameraBtn');
-  btn.innerHTML = '<span class="spinner"></span> 카메라 시작 중...';
-  btn.disabled  = true;
+  const btn=document.getElementById('cameraBtn');
+  btn.innerHTML='<span class="spinner"></span> 카메라 시작 중...'; btn.disabled=true;
 
   try {
     liveStream = await navigator.mediaDevices.getUserMedia({
-      video: {
-        facingMode: 'environment',
-        width:  { ideal: 1280 },
-        height: { ideal: 720 }
-      }
+      video:{ facingMode:'environment', width:{ideal:1280}, height:{ideal:720} }
     });
-    setPermUI('Camera', 'granted');
+    setPermUI('Camera','granted');
 
-    const video = document.getElementById('qrVideo');
-    video.srcObject = liveStream;
+    const video=document.getElementById('qrVideo');
+    video.srcObject=liveStream;
     await video.play();
 
-    // UI 전환
-    document.getElementById('camPlaceholder').style.display = 'none';
-    document.getElementById('scanLine').style.display  = 'block';
-    document.getElementById('scanBadge').style.display = 'block';
-    document.getElementById('stopBtn').style.display   = 'flex';
-    btn.style.display = 'none';
+    // UI
+    document.getElementById('camPlaceholder').style.display='none';
+    document.getElementById('savingOverlay').classList.remove('show');
+    document.getElementById('scanLine').style.display='block';
+    setScanBadge('scanning','🔍 QR 인식 중...');
+    btn.style.display='none';
+    document.getElementById('rescanBtn').style.display='none';
+    document.getElementById('qrResult').style.display='none';
 
-    liveScanning = true;
-    setScanBadge('scanning', '🔍 QR 인식 중...');
-    setStatus('scanning', '📷 QR 코드를 프레임에 맞춰주세요');
+    liveScanning=true; isSaving=false;
+    setStatus('scanning','📷 QR 코드를 프레임에 맞춰주세요');
     requestAnimationFrame(liveLoop);
 
   } catch(err) {
     console.error(err);
-    setPermUI('Camera', err.name==='NotAllowedError'?'denied':'prompt');
-    btn.innerHTML = '📷 카메라 시작';
-    btn.disabled  = false;
-    setStatus('error', '❌ 카메라 접근 실패 — 권한을 확인하세요');
-    showToast('❌ 카메라 권한이 필요합니다');
+    setPermUI('Camera',err.name==='NotAllowedError'?'denied':'prompt');
+    btn.innerHTML='📷 카메라 시작'; btn.disabled=false;
+    setStatus('error','❌ 카메라 접근 실패 — 권한을 확인하세요');
   }
 }
 
-function stopCamera() {
-  liveScanning = false;
+// ============================================================
+//  ★ 카메라 정지 (QR 인식 성공 시 즉시 호출)
+// ============================================================
+function stopCameraStream() {
+  liveScanning=false;
   if (liveStream) { liveStream.getTracks().forEach(t=>t.stop()); liveStream=null; }
+  document.getElementById('qrVideo').srcObject=null;
+  document.getElementById('scanLine').style.display='none';
+}
 
-  const video = document.getElementById('qrVideo');
-  video.srcObject = null;
-
-  document.getElementById('camPlaceholder').style.display = 'flex';
-  document.getElementById('scanLine').style.display  = 'none';
-  document.getElementById('scanBadge').style.display = 'none';
-  document.getElementById('stopBtn').style.display   = 'none';
-
-  const btn = document.getElementById('cameraBtn');
-  btn.style.display = 'flex';
-  btn.innerHTML = '📷 카메라 시작';
-  btn.disabled  = false;
-
-  setStatus('', '대기 중...');
+// ============================================================
+//  다시 스캔 버튼
+// ============================================================
+function rescanCamera() {
+  document.getElementById('savingOverlay').classList.remove('show');
+  document.getElementById('rescanBtn').style.display='none';
+  document.getElementById('cameraBtn').style.display='flex';
+  document.getElementById('cameraBtn').innerHTML='📷 카메라 시작';
+  document.getElementById('cameraBtn').disabled=false;
+  document.getElementById('camPlaceholder').style.display='flex';
+  setStatus('','대기 중...');
 }
 
 // ============================================================
@@ -500,91 +500,109 @@ function stopCamera() {
 function liveLoop() {
   if (!liveScanning) return;
 
-  const video  = document.getElementById('qrVideo');
-  const canvas = document.getElementById('liveCanvas');
+  const video=document.getElementById('qrVideo');
+  const canvas=document.getElementById('liveCanvas');
 
-  if (video.readyState === video.HAVE_ENOUGH_DATA) {
-    canvas.width  = video.videoWidth;
-    canvas.height = video.videoHeight;
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  if (video.readyState===video.HAVE_ENOUGH_DATA) {
+    canvas.width=video.videoWidth; canvas.height=video.videoHeight;
+    const ctx=canvas.getContext('2d');
+    ctx.drawImage(video,0,0,canvas.width,canvas.height);
 
-    const code = jsQR(
-      ctx.getImageData(0, 0, canvas.width, canvas.height).data,
-      canvas.width, canvas.height,
-      { inversionAttempts: 'dontInvert' }
+    const code=jsQR(
+      ctx.getImageData(0,0,canvas.width,canvas.height).data,
+      canvas.width,canvas.height,
+      {inversionAttempts:'dontInvert'}
     );
 
     if (code && !isSaving) {
-      const now = Date.now();
-      if (code.data !== lastQRData || now - lastQRTime > QR_COOLDOWN) {
-        lastQRData = code.data;
-        lastQRTime = now;
-        handleQRResult(code.data);
+      // ★ 문제2 해결: 유효한 QR(num 파라미터 포함)인지 먼저 검사
+      if (!isValidQR(code.data)) {
+        // 유효하지 않은 코드 — 무시하고 계속 스캔
+        requestAnimationFrame(liveLoop);
+        return;
       }
+
+      // 유효한 QR → 즉시 카메라 정지 + 저장 처리
+      isSaving=true;
+      stopCameraStream();             // ★ QR 인식 즉시 카메라 OFF
+      showSavingOverlay('🔍 데이터 조회 중...','출입문 정보를 가져오는 중입니다');
+      handleQRResult(code.data);
+      return;
     }
   }
   requestAnimationFrame(liveLoop);
 }
 
 // ============================================================
-//  QR 결과 처리 → 출입문DB 조회 → 기록DB 저장
+//  저장 중 오버레이
+// ============================================================
+function showSavingOverlay(text, sub) {
+  document.getElementById('overlayText').textContent=text;
+  document.getElementById('overlaySub').textContent=sub;
+  document.getElementById('savingOverlay').classList.add('show');
+  setScanBadge('saving','💾 저장 중...');
+}
+
+// ============================================================
+//  QR 결과 처리 → 서버에서 조회+저장 1회 통합
 // ============================================================
 async function handleQRResult(rawData) {
-  if (isSaving) return;
-  isSaving = true;
+  const num = extractNum(rawData);
 
-  setScanBadge('ok', '✅ QR 인식!');
-  setStatus('saving', '🔍 출입문 정보 조회 중...');
-
-  // 1) QR에서 num 추출
-  const num = extractNumFromQR(rawData);
-
-  if (!num) {
-    // num 없는 QR — 원본 데이터 그대로 저장
-    setStatus('saving', '💾 저장 중...');
-    await saveToSheet({
-      recordType  : 'QR스캔',
-      cnum        : rawData,
-      locationName: '',
-      address     : '',
-      lat         : '',
-      lng         : ''
-    });
-    isSaving = false;
-    return;
-  }
-
-  // 2) 출입문DB에서 num으로 데이터 조회
-  let doorInfo = null;
   try {
-    const res = await callAPI({ action:'getDoorInfo', num });
+    // ★ 딜레이 개선: 출입문DB 조회 + 기록DB 저장을 1번 API 호출로 처리
+    const res = await callAPI({
+      action : 'scanAndSave',
+      data   : JSON.stringify({
+        userName : getUserName(),
+        num      : num || '',
+        rawData  : rawData
+      })
+    });
+
     if (res.success) {
-      doorInfo = res;
-      // 인식 결과 화면 표시
-      document.getElementById('resCnum').textContent    = res.cnum    || '-';
-      document.getElementById('resLocation').textContent= res.cnum    || '-'; // 위치명은 cnum으로 표시
-      document.getElementById('resAddress').textContent = res.address || '-';
-      document.getElementById('qrResult').style.display = 'block';
+      // 결과 화면 표시
+      document.getElementById('resCnum').textContent   = res.cnum    || '-';
+      document.getElementById('resAddress').textContent= res.address || '-';
+      document.getElementById('resLat').textContent    = res.lat     || '-';
+      document.getElementById('resLng').textContent    = res.lng     || '-';
+      document.getElementById('qrResult').style.display='block';
+
+      // 오버레이 → 완료 표시
+      document.getElementById('overlayText').textContent='✅ 저장 완료!';
+      document.getElementById('overlaySub').textContent =
+        `연번: ${res.rowNo}  |  ${res.timestamp}`;
+      setScanBadge('ok','✅ 저장 완료');
+      setStatus('success',`✅ 저장 완료 (연번: ${res.rowNo})`);
+      showToast('✅ QR 스캔 기록 저장됨');
+      loadRecentRecords();
+
+      // 1.8초 후 "다시 스캔" 버튼 표시
+      setTimeout(() => {
+        document.getElementById('savingOverlay').classList.remove('show');
+        document.getElementById('rescanBtn').style.display='flex';
+      }, 1800);
+
     } else {
-      showToast('⚠️ num='+num+' 데이터 없음 — num만 저장됩니다');
+      document.getElementById('overlayText').textContent='❌ 저장 실패';
+      document.getElementById('overlaySub').textContent=res.message;
+      setStatus('error','❌ 저장 실패: '+res.message);
+      setTimeout(() => {
+        document.getElementById('savingOverlay').classList.remove('show');
+        document.getElementById('rescanBtn').style.display='flex';
+      }, 2500);
     }
-  } catch(e) {
-    showToast('⚠️ 출입문DB 조회 실패: ' + e.message);
+  } catch(err) {
+    document.getElementById('overlayText').textContent='❌ 서버 오류';
+    document.getElementById('overlaySub').textContent=err.message;
+    setStatus('error','❌ 서버 오류: '+err.message);
+    setTimeout(() => {
+      document.getElementById('savingOverlay').classList.remove('show');
+      document.getElementById('rescanBtn').style.display='flex';
+    }, 2500);
   }
 
-  // 3) 기록DB 저장
-  setStatus('saving', '💾 기록 저장 중...');
-  await saveToSheet({
-    recordType  : 'QR스캔',
-    cnum        : doorInfo ? doorInfo.cnum    : 'num:'+num,
-    locationName: doorInfo ? doorInfo.cnum    : '',
-    address     : doorInfo ? doorInfo.address : '',
-    lat         : doorInfo ? doorInfo.x       : '',
-    lng         : doorInfo ? doorInfo.y       : ''
-  });
-
-  isSaving = false;
+  isSaving=false;
 }
 
 // ============================================================
@@ -592,92 +610,55 @@ async function handleQRResult(rawData) {
 // ============================================================
 function recordLocation() {
   if (!checkUser()) return;
-  const btn = document.getElementById('locationBtn');
+  const btn=document.getElementById('locationBtn');
   btn.disabled=true; btn.innerHTML='<span class="spinner"></span> 위치 확인 중...';
-
-  if (!navigator.geolocation) {
-    showToast('❌ GPS 미지원 기기'); resetLocationBtn(); return;
-  }
+  if (!navigator.geolocation) { showToast('❌ GPS 미지원 기기'); resetLocBtn(); return; }
   navigator.geolocation.getCurrentPosition(
     pos => {
-      setPermUI('Gps', 'granted');
-      saveToSheet({
-        recordType  : 'GPS기록',
-        cnum        : '',
-        locationName: '',
-        address     : '',
-        lat         : pos.coords.latitude.toFixed(6),
-        lng         : pos.coords.longitude.toFixed(6)
-      });
+      setPermUI('Gps','granted');
+      callAPI({
+        action:'saveRecord',
+        data: JSON.stringify({
+          userName:'', recordType:'GPS기록',
+          cnum:'', locationName:'', address:'',
+          lat: pos.coords.latitude.toFixed(6),
+          lng: pos.coords.longitude.toFixed(6),
+          memo:'', userName: getUserName()
+        })
+      }).then(res => {
+        if(res.success){ setStatus('success',`✅ GPS 저장 완료 (연번: ${res.rowNo})`); showToast('✅ 위치 기록 저장됨'); loadRecentRecords(); }
+        else { setStatus('error','❌ '+res.message); showToast('❌ '+res.message); }
+        resetLocBtn();
+      }).catch(e => { setStatus('error','❌ 서버 오류'); showToast('❌ '+e.message); resetLocBtn(); });
     },
     err => {
-      setPermUI('Gps', err.code===1?'denied':'prompt');
-      showToast(err.code===1 ? '❌ 위치 권한 차단됨' : '❌ 위치를 가져올 수 없음');
-      resetLocationBtn();
+      setPermUI('Gps',err.code===1?'denied':'prompt');
+      showToast(err.code===1?'❌ 위치 권한 차단됨':'❌ 위치를 가져올 수 없음');
+      resetLocBtn();
     },
-    { enableHighAccuracy:true, timeout:10000 }
+    {enableHighAccuracy:true,timeout:10000}
   );
 }
-function resetLocationBtn() {
+function resetLocBtn() {
   const btn=document.getElementById('locationBtn');
   btn.disabled=false; btn.innerHTML='📍 현재 위치 기록하기';
 }
 
 // ============================================================
-//  기록DB 저장
-// ============================================================
-async function saveToSheet(fields) {
-  const payload = Object.assign({ userName: getUserName(), memo:'' }, fields);
-  try {
-    const res = await callAPI({ action:'saveRecord', data: JSON.stringify(payload) });
-    onSaveSuccess(res, fields.recordType);
-  } catch(err) {
-    onSaveError(err);
-  }
-}
-function onSaveSuccess(res, type) {
-  if (res.success) {
-    setScanBadge('ok', '✅ 저장 완료');
-    setStatus('success', `✅ 저장 완료 (연번: ${res.rowNo})`);
-    showToast(`✅ ${type} 기록 저장됨`);
-    loadRecentRecords();
-    setTimeout(() => {
-      if (liveScanning) {
-        setScanBadge('scanning','🔍 QR 인식 중...');
-        setStatus('scanning','📷 QR 코드를 프레임에 맞춰주세요');
-      }
-    }, 2500);
-  } else {
-    setStatus('error','❌ 저장 실패: '+res.message);
-    showToast('❌ '+res.message);
-  }
-  resetLocationBtn();
-}
-function onSaveError(err) {
-  setStatus('error','❌ 서버 오류: '+err.message);
-  showToast('❌ 서버 오류: '+err.message);
-  resetLocationBtn();
-}
-
-// ============================================================
-//  최근 기록 조회
+//  최근 기록
 // ============================================================
 async function loadRecentRecords() {
   try {
-    const data = await callAPI({ action:'getRecentRecords', userName: getUserName(), limit:3 });
-    renderRecords(Array.isArray(data) ? data : []);
-  } catch(e) { console.error(e); }
+    const data=await callAPI({action:'getRecentRecords',userName:getUserName(),limit:3});
+    renderRecords(Array.isArray(data)?data:[]);
+  } catch(e){ console.error(e); }
 }
 function renderRecords(records) {
-  const list = document.getElementById('recordList');
-  if (!records||records.length===0) {
-    list.innerHTML='<div class="empty-msg">📭 기록이 없습니다</div>'; return;
-  }
-  list.innerHTML = records.map(r => {
-    const isGps = r.recordType==='GPS기록';
-    const title = r.cnum
-      ? `${r.cnum}${r.locationName&&r.locationName!==r.cnum?' · '+r.locationName:''}`
-      : r.lat ? `GPS (${r.lat}, ${r.lng})` : '기록됨';
+  const list=document.getElementById('recordList');
+  if (!records||records.length===0){ list.innerHTML='<div class="empty-msg">📭 기록이 없습니다</div>'; return; }
+  list.innerHTML=records.map(r=>{
+    const isGps=r.recordType==='GPS기록';
+    const title=r.cnum?r.cnum:r.lat?`GPS (${r.lat}, ${r.lng})`:'기록됨';
     return `<div class="record-item ${isGps?'gps':''}">
       <div class="r-badge ${isGps?'gps':''}">${isGps?'📍':'📷'}</div>
       <div class="r-info">
@@ -702,23 +683,18 @@ function checkUser() {
   }
   return true;
 }
-function setStatus(cls, msg) {
-  const b=document.getElementById('statusBox'); b.className=cls; b.textContent=msg;
-}
-function setScanBadge(type, msg) {
+function setStatus(cls,msg){ const b=document.getElementById('statusBox'); b.className=cls; b.textContent=msg; }
+function setScanBadge(type,msg){
   const b=document.getElementById('scanBadge');
-  b.className='scan-badge'+(type==='ok'?' ok':type==='err'?' err':'');
-  b.textContent=msg;
+  b.className='scan-badge '+type; b.textContent=msg; b.style.display='block';
 }
 let _tt=null;
-function showToast(msg, dur=2800) {
+function showToast(msg,dur=2800){
   const t=document.getElementById('toast');
   t.textContent=msg; t.classList.add('show');
   clearTimeout(_tt); _tt=setTimeout(()=>t.classList.remove('show'),dur);
 }
-function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 </script>
 </body>
 </html>
